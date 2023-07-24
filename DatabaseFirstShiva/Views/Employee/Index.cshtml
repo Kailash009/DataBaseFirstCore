@@ -1,0 +1,62 @@
+﻿@model IEnumerable<DatabaseFirstShiva.Models.Employee>
+
+@{
+    ViewData["Title"] = "Index";
+}
+@Html.Raw(TempData["insert"])
+@Html.Raw(TempData["update"])
+@Html.Raw(TempData["delete"])
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ename)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Eage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Eaddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ecity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Esalary)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ename)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Eage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Eaddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ecity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Esalary)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Eid">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Eid">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Eid" onclick="return confirm('Are you Sure You want to Delete(Y/N)?');">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

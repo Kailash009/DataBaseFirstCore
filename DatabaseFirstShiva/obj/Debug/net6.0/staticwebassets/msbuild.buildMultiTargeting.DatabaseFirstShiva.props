@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\DatabaseFirstShiva.props" />
+</Project>
